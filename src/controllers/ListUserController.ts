@@ -8,6 +8,6 @@ export class ListUserController {
 
         const users = await listUsersService.execute();
 
-        return response.json(users);
+        return response.status(200).json(users);
     }
 }

@@ -10,6 +10,6 @@ export class ListUserSendComplimentsController {
 
         const compliments = await listUserSendComplimentsService.execute(user_id);
 
-        return response.json(compliments);
+        return response.status(200).json(compliments);
     }
 }

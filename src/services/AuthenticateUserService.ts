@@ -2,6 +2,7 @@ import { getCustomRepository } from "typeorm";
 import { UsersRepositories } from "../repositories/UsersRepositories";
 import { compare } from 'bcryptjs';
 import { sign } from 'jsonwebtoken';
+import { AppError } from "../error/AppError";
 
 interface IAuthenticateRequest {
     email: string;
@@ -19,17 +20,17 @@ export class AuthenticateUserService {
         });
 
         if(!user) {
-            throw new Error("Email/Password incorrect");
+            throw new AppError("Email/Password incorrect", 401);
         }
 
         const passwordMatch = await compare(password, user.password);
 
         if(!passwordMatch) {
-            throw new Error("Email/Password incorrect");
+            throw new AppError("Email/Password incorrect", 401);
         }
 
         const token = sign({
-            emai: user.email
+            email: user.email
         }, "ff3e804d698c54d98c6c8aac66b5fc72", {
             subject: user.id,
             expiresIn: "1d"
