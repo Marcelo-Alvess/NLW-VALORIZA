@@ -17,7 +17,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 ## 💻 Projeto
 
-Valoriza é uma plataforma para promover o reconhecimento entre companheiros de equipe.
+Valoriza é uma plataforma para promover o reconhecimento entre companheiros de equipe, desenvolvida na semana do NLW06.
 
 ## 🚀 Como executar
 
